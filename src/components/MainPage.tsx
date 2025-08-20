@@ -1,7 +1,8 @@
+import { Link, Element } from 'react-scroll';
 
 export default function MainPage() {
   return (
-    <>
+    <div id="Home">
         <div className="relative h-screen overflow-hidden bg-white">
       <div className="pt-16 pb-80 sm:pt-24 sm:pb-40 lg:pt-40 lg:pb-48">
         <div className="relative mx-auto max-w-7xl px-4 sm:static sm:px-6 lg:px-8">
@@ -33,7 +34,7 @@ export default function MainPage() {
                       <div className="h-64 w-44 overflow-hidden rounded-lg">
                         <img
                           alt=""
-                          src="/Pro2.jpg"
+                          src="/Prm2.jpg"
                           className="size-full object-cover"
                         />
                       </div>
@@ -42,21 +43,21 @@ export default function MainPage() {
                       <div className="h-64 w-44 overflow-hidden rounded-lg">
                         <img
                           alt=""
-                          src="/Pro8.jpg"
+                          src="/Mrr2.jpg"
                           className="size-full object-cover"
                         />
                       </div>
                       <div className="h-64 w-44 overflow-hidden rounded-lg">
                         <img
                           alt=""
-                          src="Pro7.jpg"
+                          src="Fu3.jpg"
                           className="size-full object-cover"
                         />
                       </div>
                       <div className="h-64 w-44 overflow-hidden rounded-lg">
                         <img
                           alt=""
-                          src="/Pro9.jpg"
+                          src="/Fu2.jpg"
                           className="size-full object-cover"
                         />
                       </div>
@@ -65,14 +66,14 @@ export default function MainPage() {
                       <div className="h-64 w-44 overflow-hidden rounded-lg">
                         <img
                           alt=""
-                          src="/Pro10.jpg"
+                          src="/Gra2.jpg"
                           className="size-full object-cover"
                         />
                       </div>
                       <div className="h-64 w-44 overflow-hidden rounded-lg">
                         <img
                           alt=""
-                          src="/Pro5.jpg"
+                          src="/Pro7.jpg"
                           className="size-full object-cover"
                         />
                       </div>
@@ -81,18 +82,15 @@ export default function MainPage() {
                 </div>
               </div>
 
-              <a
-                href="#"
-                className="inline-block rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-center font-medium text-white hover:bg-indigo-700"
-              >
+              <Link className="inline-block rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-center font-medium text-white hover:bg-indigo-700" to="Services" smooth={true} duration={500} offset={-50}> 
                 Book a Session
-              </a>
+              </Link>
             </div>
           </div>
         </div>
       </div>
     </div>
-    </>
+    </div>
     
   )
 }
