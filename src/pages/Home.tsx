@@ -1,12 +1,13 @@
+import Footer from '@/components/Footer'
 import Header from '@/components/Header'
 import MainPage from '@/components/MainPage'
-import React from 'react'
 
 const Home = () => {
   return (
-    <div className='mt-20'>
+    <div className='mt-20 hide-scrollbar'>
      <Header />
      <MainPage />
+     <Footer />
     </div>
   )
 }
