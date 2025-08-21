@@ -33,14 +33,14 @@ export function DialogBtn({ text }: DialogBtnProps) {
           <div className="grid gap-4">
             <div className="grid gap-3">
               <Label htmlFor="name-1">Name</Label>
-              <Input id="name-1" name="name" placeholder="Your name" />
+              <Input id="name-1" name="Name" placeholder="Your name" />
             </div>
             <div className="grid gap-3">
-              <Label htmlFor="username-1">Email</Label>
-              <Input id="username-1" name="username" placeholder="@peduarte" />
+              <Label htmlFor="Email">Email</Label>
+              <Input id="username-1" name="Email" placeholder="yourname@gmail.com" />
             </div>
             <div className="grid gap-3">
-              <Label htmlFor="username-1">Booking</Label>
+              <Label htmlFor="Booking">Booking</Label>
               <Input id="username-1" name="username" defaultValue={`${text}`} placeholder="B" />
             </div>
           </div>
