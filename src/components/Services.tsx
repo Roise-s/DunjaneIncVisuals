@@ -1,3 +1,4 @@
+import { DialogBtn } from "./DialogBtn"
 
 const Services = () => {
   return (
@@ -17,13 +18,7 @@ const Services = () => {
 
           <span className="text-sm font-medium text-gray-700">starting price</span>
         </p>
-
-        <a
-          className="mt-4 block rounded-sm border border-indigo-600 bg-indigo-600 px-12 py-3 text-center text-sm font-medium text-white hover:bg-transparent hover:text-indigo-600 focus:ring-3 focus:outline-hidden sm:mt-6"
-          href="#"
-        >
-          Book a Session
-        </a>
+        <DialogBtn text='Prom Photoshoot' />
       </div>
 
       <div className="p-6 sm:px-8">
@@ -107,12 +102,7 @@ const Services = () => {
           <span className="text-sm font-medium text-gray-700">starting price</span>
         </p>
 
-        <a
-          className="mt-4 block rounded-sm border border-indigo-600 bg-indigo-600 px-12 py-3 text-center text-sm font-medium text-white hover:bg-transparent hover:text-indigo-600 focus:ring-3 focus:outline-hidden sm:mt-6"
-          href="#"
-        >
-          Book a Session
-        </a>
+        <DialogBtn text='Studio Photoshoot' />
       </div>
 
       <div className="p-6 sm:px-8">
@@ -196,12 +186,7 @@ const Services = () => {
           <span className="text-sm font-medium text-gray-700">starting price</span>
         </p>
 
-        <a
-          className="mt-4 block rounded-sm border border-indigo-600 bg-indigo-600 px-12 py-3 text-center text-sm font-medium text-white hover:bg-transparent hover:text-indigo-600 focus:ring-3 focus:outline-hidden sm:mt-6"
-          href="#"
-        >
-          Book a Session
-        </a>
+        <DialogBtn text='Maternity Photoshoot' />
       </div>
 
       <div className="p-6 sm:px-8">
@@ -285,12 +270,7 @@ const Services = () => {
           <span className="text-sm font-medium text-gray-700">starting price</span>
         </p>
 
-        <a
-          className="mt-4 block rounded-sm border border-indigo-600 bg-indigo-600 px-12 py-3 text-center text-sm font-medium text-white hover:bg-transparent hover:text-indigo-600 focus:ring-3 focus:outline-hidden sm:mt-6"
-          href="#"
-        >
-          Book a Session
-        </a>
+        <DialogBtn text='Graduation Photoshoot' />
       </div>
 
       <div className="p-6 sm:px-8">
@@ -375,12 +355,7 @@ const Services = () => {
           <span className="text-sm font-medium text-gray-700">starting price</span>
         </p>
 
-        <a
-          className="mt-4 block rounded-sm border border-indigo-600 bg-indigo-600 px-12 py-3 text-center text-sm font-medium text-white hover:bg-transparent hover:text-indigo-600 focus:ring-3 focus:outline-hidden sm:mt-6"
-          href="#"
-        >
-          Book a Session
-        </a>
+        <DialogBtn text='Wedding Photoshoot' />
       </div>
 
       <div className="p-6 sm:px-8">
@@ -464,12 +439,7 @@ const Services = () => {
           <span className="text-sm font-medium text-gray-700">starting price</span>
         </p>
 
-        <a
-          className="mt-4 block rounded-sm border border-indigo-600 bg-indigo-600 px-12 py-3 text-center text-sm font-medium text-white hover:bg-transparent hover:text-indigo-600 focus:ring-3 focus:outline-hidden sm:mt-6"
-          href="#"
-        >
-          Book a Session
-        </a>
+        <DialogBtn text='Funeral Photoshoot' />
       </div>
 
       <div className="p-6 sm:px-8">
