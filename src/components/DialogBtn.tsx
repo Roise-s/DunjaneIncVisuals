@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/dialog"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
+import { DatePr } from "./Date";
 
 type DialogBtnProps = {
   text: string;
@@ -40,8 +41,16 @@ export function DialogBtn({ text }: DialogBtnProps) {
               <Input id="username-1" name="Email" placeholder="yourname@gmail.com" />
             </div>
             <div className="grid gap-3">
+              <Label htmlFor="Email">Contacts</Label>
+              <Input id="username-1" name="Phone Number" placeholder="+27 71 234 5678" />
+            </div>
+            <div className="grid gap-3">
               <Label htmlFor="Booking">Booking</Label>
               <Input id="username-1" name="username" defaultValue={`${text}`} placeholder="B" />
+            </div>
+            <div className="grid gap-3">
+              <Label htmlFor="Booking">Which day will the Shoot be</Label>
+              <DatePr />
             </div>
           </div>
           <DialogFooter>
