@@ -350,7 +350,7 @@ const Services = () => {
         <p className="mt-2 text-gray-700">Capturing love, frame by frame. Because every ‘I do’ deserves to be remembered.</p>
 
         <p className="mt-2 sm:mt-4">
-          <strong className="text-3xl font-bold text-gray-900 sm:text-4xl">R1 699</strong>
+          <strong className="text-3xl font-bold text-gray-900 sm:text-4xl">R2 749</strong>
 
           <span className="text-sm font-medium text-gray-700">starting price</span>
         </p>
