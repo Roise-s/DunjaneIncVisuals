@@ -1,4 +1,6 @@
-import { Button } from "@/components/ui/button"
+// DialogBtn.tsx
+import React, { useState } from "react";
+import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogClose,
@@ -8,21 +10,58 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/components/ui/dialog"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
+} from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import { DatePr } from "./Date";
 
 type DialogBtnProps = {
   text: string;
 };
 
+type Web3FormsResponse = {
+  success: boolean;
+  [key: string]: any;
+};
+
 export function DialogBtn({ text }: DialogBtnProps) {
+  const apiKey = import.meta.env.VITE_ACCESS_KEY_HERE;
+  const [selectedDate, setSelectedDate] = useState<Date | undefined>();
+
+  const onSubmit = async (event: React.FormEvent<HTMLFormElement>): Promise<void> => {
+    event.preventDefault();
+
+    const formData = new FormData(event.currentTarget);
+    formData.append("access_key", apiKey);
+
+    if (selectedDate) {
+      formData.append("Date (Please know that if the date is 29 you should add 1 meaning that the date is 30)", selectedDate.toISOString());
+    }
+
+    const object = Object.fromEntries(formData.entries());
+    const json = JSON.stringify(object);
+
+    const res: Web3FormsResponse = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json"
+      },
+      body: json
+    }).then((res) => res.json());
+
+    if (res.success) {
+      console.log("Success", res);
+    } else {
+      console.log("Error", res);
+    }
+  };
+
   return (
     <Dialog>
-      <form>
+      <div>
         <DialogTrigger asChild className="mt-4 h-[50px] w-[300px] block rounded-sm border border-indigo-600 bg-indigo-600 px-12 py-3 text-center text-sm font-medium text-white hover:bg-transparent hover:text-indigo-600 focus:ring-3 focus:outline-hidden sm:mt-6">
-          <Button >Book a Session</Button>
+          <Button>Book a Session</Button>
         </DialogTrigger>
         <DialogContent className="sm:max-w-[425px]">
           <DialogHeader>
@@ -31,36 +70,43 @@ export function DialogBtn({ text }: DialogBtnProps) {
               Fill the form below to book a {text} session. 
             </DialogDescription>
           </DialogHeader>
-          <div className="grid gap-4">
-            <div className="grid gap-3">
-              <Label htmlFor="name-1">Name</Label>
-              <Input id="name-1" name="Name" placeholder="Your name" />
+          <form onSubmit={onSubmit}>
+            <div className="grid gap-4">
+              <div className="grid gap-3">
+                <Label htmlFor="name-1">Name</Label>
+                <Input id="name-1" name="Name" placeholder="Your name" />
+              </div>
+              <div className="grid gap-3">
+                <Label htmlFor="Email">Email</Label>
+                <Input id="email-1" name="Email" placeholder="yourname@gmail.com" />
+              </div>
+              <div className="grid gap-3">
+                <Label htmlFor="Phone">Contacts</Label>
+                <Input id="phone-1" name="Phone Number" placeholder="+27 71 234 5678" />
+              </div>
+              <div className="grid gap-3">
+                <Label htmlFor="Booking">Booking</Label>
+                <Input id="booking-1" name="Booking" defaultValue={`${text}`} />
+              </div>
+              <div className="grid gap-3">
+                <Label htmlFor="Date">Which day will the Shoot be</Label>
+                <DatePr onDateChange={setSelectedDate} />
+              </div>
             </div>
-            <div className="grid gap-3">
-              <Label htmlFor="Email">Email</Label>
-              <Input id="username-1" name="Email" placeholder="yourname@gmail.com" />
-            </div>
-            <div className="grid gap-3">
-              <Label htmlFor="Email">Contacts</Label>
-              <Input id="username-1" name="Phone Number" placeholder="+27 71 234 5678" />
-            </div>
-            <div className="grid gap-3">
-              <Label htmlFor="Booking">Booking</Label>
-              <Input id="username-1" name="username" defaultValue={`${text}`} placeholder="B" />
-            </div>
-            <div className="grid gap-3">
-              <Label htmlFor="Booking">Which day will the Shoot be</Label>
-              <DatePr />
-            </div>
-          </div>
-          <DialogFooter>
-            <DialogClose asChild>
-              <Button variant="outline">Cancel</Button>
-            </DialogClose>
-            <Button type="submit">Send</Button>
-          </DialogFooter>
+            <DialogFooter>
+              <DialogClose asChild>
+                <Button variant="outline">Cancel</Button>
+              </DialogClose>
+              <button
+                className="bg-black text-white w-1/4 rounded-2xl cursor-pointer hover:opacity-75"
+                type="submit"
+              >
+                Send
+              </button>
+            </DialogFooter>
+          </form>
         </DialogContent>
-      </form>
+      </div>
     </Dialog>
-  )
+  );
 }
