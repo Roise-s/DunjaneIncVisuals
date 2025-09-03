@@ -1,0 +1,53 @@
+.bookBtn {
+  width: 300px;
+}
+@media (max-width: 1200px) {
+  .bookBtn {
+    width: 270px;
+  }
+}
+@media (max-width: 1050px) {
+  .bookBtn {
+    width: 250px;
+  }
+}
+@media (max-width: 1000px) {
+  .bookBtn {
+    width: 220px;
+  }
+}
+@media (max-width: 900px) {
+  .bookBtn {
+    width: 200px;
+  }
+}
+@media (max-width: 850px) {
+  .bookBtn {
+    width: 170px;
+  }
+}
+@media (max-width: 775px) {
+  .bookBtn {
+    width: 270px;
+  }
+}
+@media (max-width: 750px) {
+  .bookBtn {
+    width: 250px;
+  }
+}
+@media (max-width: 650px) {
+  .bookBtn {
+    width: 230px;
+  }
+}
+@media (max-width: 640px) {
+  .bookBtn {
+    width: 300px;
+  }
+}
+@media (max-width: 400px) {
+  .bookBtn {
+    width: 230px;
+  }
+}/*# sourceMappingURL=styles.css.map */

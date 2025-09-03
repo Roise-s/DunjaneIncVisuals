@@ -15,6 +15,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { DatePr } from "./Date";
 import SuccessAlert3 from "./FormSent";
+import "./styles/styles.css"
 
 type DialogBtnProps = {
   text: string;
@@ -80,7 +81,7 @@ export function DialogBtn({ text }: DialogBtnProps) {
     <Dialog>
 
       <div>
-        <DialogTrigger asChild className="mt-4 h-[50px] w-[300px] block rounded-sm border border-indigo-600 bg-indigo-600 px-12 py-3 text-center text-sm font-medium text-white hover:bg-transparent hover:text-indigo-600 focus:ring-3 focus:outline-hidden sm:mt-6">
+        <DialogTrigger asChild className="bookBtn mt-4 h-[50px] block rounded-sm border border-indigo-600 bg-indigo-600 px-12 py-3 text-center text-sm font-medium text-white hover:bg-transparent hover:text-indigo-600 focus:ring-3 focus:outline-hidden sm:mt-6">
           <Button>Book a Session</Button>
         </DialogTrigger>
         <DialogContent className="sm:max-w-[425px]">
