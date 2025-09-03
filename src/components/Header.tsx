@@ -1,4 +1,4 @@
-import { Link, Element } from 'react-scroll';
+import { Link } from 'react-scroll';
 
 const Header = () => {
   return (
