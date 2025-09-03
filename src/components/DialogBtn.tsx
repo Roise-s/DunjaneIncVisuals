@@ -27,9 +27,11 @@ type Web3FormsResponse = {
 export function DialogBtn({ text }: DialogBtnProps) {
   const apiKey = import.meta.env.VITE_ACCESS_KEY_HERE;
   const [selectedDate, setSelectedDate] = useState<Date | undefined>();
+  const [isLoading, setIsLoading] = useState(false)
 
   const onSubmit = async (event: React.FormEvent<HTMLFormElement>): Promise<void> => {
     event.preventDefault();
+    setIsLoading(true)
 
     const formData = new FormData(event.currentTarget);
     formData.append("access_key", apiKey);
@@ -52,6 +54,7 @@ export function DialogBtn({ text }: DialogBtnProps) {
 
     if (res.success) {
       console.log("Success", res);
+      setIsLoading(false)
     } else {
       console.log("Error", res);
     }
@@ -101,7 +104,7 @@ export function DialogBtn({ text }: DialogBtnProps) {
                 className="bg-black text-white w-1/4 rounded-2xl cursor-pointer hover:opacity-75"
                 type="submit"
               >
-                Send
+                {isLoading ? "Sending..." : "Send"}
               </button>
             </DialogFooter>
           </form>
