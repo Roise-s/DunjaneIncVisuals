@@ -14,6 +14,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { DatePr } from "./Date";
+import SuccessAlert3 from "./FormSent";
 
 type DialogBtnProps = {
   text: string;
@@ -28,6 +29,20 @@ export function DialogBtn({ text }: DialogBtnProps) {
   const apiKey = import.meta.env.VITE_ACCESS_KEY_HERE;
   const [selectedDate, setSelectedDate] = useState<Date | undefined>();
   const [isLoading, setIsLoading] = useState(false)
+  const [EmailSent, setEmailSent] = useState(false)
+
+ const countUpToThreeSeconds = () => {
+     let seconds = 0;
+    const timer = setInterval(() => {
+      seconds++;
+      console.log(seconds); // shows the count in the console
+
+      if (seconds === 3) {
+        setEmailSent(false)
+        clearInterval(timer); // stop the timer
+      }
+    }, 1000); 
+ }
 
   const onSubmit = async (event: React.FormEvent<HTMLFormElement>): Promise<void> => {
     event.preventDefault();
@@ -55,6 +70,7 @@ export function DialogBtn({ text }: DialogBtnProps) {
     if (res.success) {
       console.log("Success", res);
       setIsLoading(false)
+      setEmailSent(true)
     } else {
       console.log("Error", res);
     }
@@ -62,6 +78,7 @@ export function DialogBtn({ text }: DialogBtnProps) {
 
   return (
     <Dialog>
+
       <div>
         <DialogTrigger asChild className="mt-4 h-[50px] w-[300px] block rounded-sm border border-indigo-600 bg-indigo-600 px-12 py-3 text-center text-sm font-medium text-white hover:bg-transparent hover:text-indigo-600 focus:ring-3 focus:outline-hidden sm:mt-6">
           <Button>Book a Session</Button>
@@ -73,6 +90,9 @@ export function DialogBtn({ text }: DialogBtnProps) {
               Fill the form below to book a {text} session. 
             </DialogDescription>
           </DialogHeader>
+          <div className={EmailSent ? "" : "hidden"}>
+            <SuccessAlert3 />
+          </div>
           <form onSubmit={onSubmit}>
             <div className="grid gap-4">
               <div className="grid gap-3">
@@ -101,6 +121,7 @@ export function DialogBtn({ text }: DialogBtnProps) {
                 <Button variant="outline">Cancel</Button>
               </DialogClose>
               <button
+                onClick={countUpToThreeSeconds}
                 className="bg-black text-white w-1/4 rounded-2xl cursor-pointer hover:opacity-75"
                 type="submit"
               >
