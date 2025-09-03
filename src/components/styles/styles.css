@@ -50,4 +50,10 @@
   .bookBtn {
     width: 230px;
   }
+}
+
+@media (max-width: 1200px) {
+  .space {
+    display: none;
+  }
 }/*# sourceMappingURL=styles.css.map */

@@ -1,3 +1,4 @@
+import './styles/styles.css'
 
 const Projects = () => {
   return (
@@ -81,7 +82,7 @@ const Projects = () => {
         </a>
       </li>
 
-      <li>
+      <li className="space">
         <a href="#" className="group block overflow-hidden">
           <img
             src="/Em.png"

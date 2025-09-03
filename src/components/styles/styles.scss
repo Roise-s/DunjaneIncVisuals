@@ -31,3 +31,9 @@
     }
     width: 300px;
 }
+
+.space {
+    @media (max-width: 1200px) {
+        display: none;
+    }
+}
